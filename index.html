@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Mido ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg: #070b1b;
+  --card: #11182e;
+  --silver: #dce3f5;
+  --muted: #aab5d0;
+  --line: #34405e;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at top, #172341 0%, #070b1b 65%);
+  color: var(--silver);
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.star {
+  position: absolute;
+  color: #e6eaff;
+  opacity: .65;
+  animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .2; transform: scale(.8); }
+  to { opacity: .9; transform: scale(1.2); }
+}
+
+header {
+  padding: 85px 20px 65px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.moon {
+  font-size: 65px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 20px #aab8e8);
+}
+
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: clamp(44px, 10vw, 75px);
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 15px 0 30px;
+}
+
+button, .button {
+  background: transparent;
+  border: 1px solid #aebbdc;
+  color: var(--silver);
+  border-radius: 30px;
+  padding: 13px 23px;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: .3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+button:hover, .button:hover {
+  background: #dce3f5;
+  color: #070b1b;
+  box-shadow: 0 0 25px #aab8e855;
+}
+
+section {
+  padding: 65px 20px;
+  max-width: 760px;
+  margin: auto;
+}
+
+h2 {
+  font-size: 37px;
+  margin-bottom: 10px;
+}
+
+.small {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: linear-gradient(145deg, #151e37, #0c1226);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 27px 23px;
+  margin: 20px auto;
+  max-width: 600px;
+  box-shadow: 0 10px 35px #00000025;
+}
+
+.letter {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  line-height: 1.8;
+  text-align: left;
+  white-space: pre-line;
+}
+
+.reasons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.reason {
+  background: #11182e;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  padding: 18px 12px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.reason span {
+  display: block;
+  color: #e4dff7;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 25px;
+  margin-bottom: 6px;
+}
+
+details {
+  text-align: left;
+  background: #11182e;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 17px;
+  margin: 12px auto;
+  max-width: 600px;
+}
+
+summary {
+  cursor: pointer;
+  font-size: 14px;
+}
+
+details p {
+  color: #d1d8ea;
+  line-height: 1.9;
+  font-size: 14px;
+}
+
+.timeline-item {
+  border-left: 1px solid #8492b9;
+  padding: 5px 0 22px 22px;
+  margin-left: 15px;
+  text-align: left;
+}
+
+.timeline-item h3 {
+  font-size: 24px;
+  margin: 0 0 5px;
+}
+
+.timeline-item p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.music-box {
+  background: #11182e;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 12px;
+  margin-top: 12px;
+}
+
+.hidden-message {
+  display: none;
+  margin-top: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  line-height: 1.7;
+}
+
+footer {
+  padding: 45px 20px;
+  color: var(--muted);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+}
+
+.divider {
+  color: #8997bb;
+  letter-spacing: 8px;
+  margin: 25px 0;
+}
+
+@media (max-width: 420px) {
+  .reasons {
+    grid-template-columns: 1fr;
+  }
+
+  .letter {
+    font-size: 20px;
+  }
+
+  section {
+    padding: 50px 17px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<header>
+  <div class="moon">☾</div>
+
+  <p class="subtitle">a little universe made for you</p>
+
+  <h1>Happy 18th, Mido</h1>
+
+  <p style="font-family:'Cormorant Garamond',serif;font-size:23px;">
+    To my favorite person under the same sky ♡
+  </p>
+
+  <button onclick="document.getElementById('letter').scrollIntoView()">
+    Open your birthday surprise, love ♡
+  </button>
+
+  <p class="small" style="margin-top:35px;">
+    October 27 · A little piece of my heart
+  </p>
+</header>
+
+
+<section id="letter">
+  <h2>To my Mido ♡</h2>
+  <p class="small">a letter from me to you</p>
+
+  <div class="card letter">Happy birthday, my love. ♡
+
+I wish I could be there with you today, see your smile, and celebrate this special day by your side.
+
+Even with all the distance between us, you have a special place in my life. I'm so grateful that our paths crossed and that I got to know someone like you.
+
+I hope this new chapter of your life brings you peace, happiness, good health, and beautiful opportunities. I hope you get closer to all the dreams you've been working so hard for.
+
+And whenever life gets difficult, I hope you remember that you don't have to be perfect all the time. You're allowed to rest, to feel tired, and to take things one day at a time.
+
+I wish I could give you the biggest birthday hug right now. Until I can, here's a little piece of my heart, made just for you.
+
+Happy 18th birthday, Mido.
+
+I'm always wishing the best for you.
+
+With love,
+your girl ♡</div>
+</section>
+
+
+<section id="reasons">
+  <h2>18 Reasons Why You're Special</h2>
+  <p class="small">eighteen little things I appreciate about you</p>
+
+  <div class="reasons">
+
+    <div class="reason"><span>01 ✧</span>The way you make me smile.</div>
+    <div class="reason"><span>02 ✧</span>Your kind heart.</div>
+    <div class="reason"><span>03 ✧</span>Your beautiful mind.</div>
+    <div class="reason"><span>04 ✧</span>The way you care.</div>
+    <div class="reason"><span>05 ✧</span>Your determination.</div>
+    <div class="reason"><span>06 ✧</span>Your sense of humor.</div>
+    <div class="reason"><span>07 ✧</span>The little things you remember.</div>
+    <div class="reason"><span>08 ✧</span>Your honesty with me.</div>
+    <div class="reason"><span>09 ✧</span>The way we can talk.</div>
+    <div class="reason"><span>10 ✧</span>Your beautiful smile.</div>
+    <div class="reason"><span>11 ✧</span>Your dreams for the future.</div>
+    <div class="reason"><span>12 ✧</span>Your thoughtful side.</div>
+    <div class="reason"><span>13 ✧</span>The comfort in your words.</div>
+    <div class="reason"><span>14 ✧</span>Your unique personality.</div>
+    <div class="reason"><span>15 ✧</span>The memories we're making.</div>
+    <div class="reason"><span>16 ✧</span>The things I keep learning about you.</div>
+    <div class="reason"><span>17 ✧</span>Simply being yourself.</div>
+    <div class="reason"><span>18 ✧</span>Because you're you. ♡</div>
+
+  </div>
+</section>
+
+
+<section id="open-when">
+  <h2>Open When... 💌</h2>
+  <p class="small">little letters for different days</p>
+
+  <details>
+    <summary>☾ Open when you're feeling sad</summary>
+    <p>
+      Hey baby. Take a breath and give yourself a little time.
+      You don't have to figure everything out today.
+      One difficult day doesn't define your life, and you deserve
+      moments of peace just as much as anyone else.
+      Please be gentle with yourself, okay? ♡
+    </p>
+  </details>
+
+  <details>
+    <summary>☾ Open when you miss me</summary>
+    <p>
+      I know distance can be frustrating sometimes.
+      I wish we could sit together and talk about absolutely
+      nothing for hours. Until then, remember that somewhere
+      under this same sky, there's someone who cares about you
+      and is wishing you a beautiful day. ♡
+    </p>
+  </details>
+
+  <details>
+    <summary>☾ Open when you're stressed</summary>
+    <p>
+      Baby, you don't need to do everything at once.
+      Take things one step at a time, drink some water,
+      and give yourself permission to rest when you need it.
+      Your worth isn't measured by how much you achieve in a day.
+      I'm rooting for you, always. ♡
+    </p>
+  </details>
+
+  <details>
+    <summary>☾ Open when you need a reminder</summary>
+    <p>
+      You matter beyond your grades, your goals, and all the
+      things you expect from yourself. You deserve kindness,
+      patience, and happiness too.
+      Never forget to take care of yourself while building
+      the future you dream about. ♡
+    </p>
+  </details>
+
+  <details>
+    <summary>☾ Open when it's your birthday</summary>
+    <p>
+      SURPRISE, BIRTHDAY BOY! ♡
+
+      You're officially 18! I hope this year gives you countless
+      reasons to smile, new opportunities, unforgettable memories,
+      and the courage to keep following your dreams.
+
+      I'm so glad I get to celebrate you, even from far away.
+      Happy birthday, Mido. 🌙
+    </p>
+  </details>
+</section>
+
+
+<section id="timeline">
+  <h2>Our Little Story ✧</h2>
+  <p class="small">some pages in our story</p>
+
+  <div class="card">
+
+    <div class="timeline-item">
+      <h3>June 20 ♡</h3>
+      <p>The day our relationship began.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Every little conversation</h3>
+      <p>All the talks, laughs, and moments that became memories.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>October 27 ☾</h3>
+      <p>The day someone very special turns eighteen.</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>More pages to come...</h3>
+      <p>There's still so much life to experience and so many memories to make.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="music">
+  <h2>Our Little Song ♫</h2>
+  <p class="small">a song for you, under our little sky</p>
+
+  <div class="music-box">
+
+    <div style="font-size:40px;">♫ ☾ ♡</div>
+
+    <h3 style="font-size:29px;margin-bottom:0;">
+      Lovesong
+    </h3>
+
+    <p style="color:#aab5d0;font-size:13px;">
+      Adele · 21
+    </p>
+
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/NSec3LfUWxE"
+      title="Adele - Lovesong"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
+
+    <p style="font-family:'Cormorant Garamond',serif;font-size:20px;">
+      Press play and let this song be a little birthday gift. ♡
+    </p>
+
+  </div>
+</section>
+
+
+<section id="secret">
+  <h2>A Little Secret ✨</h2>
+  <p class="small">there's one more thing waiting for you</p>
+
+  <button onclick="showSecret()">
+    Tap to discover ♡
+  </button>
+
+  <div class="hidden-message" id="secretMessage">
+    If you found this, here's your secret message:
+
+    <br><br>
+
+    Out of all the stars in this universe,
+    I'm glad our paths crossed.
+
+    <br><br>
+
+    Happy birthday, my Mido. ☾
+
+    <br>
+
+    <span style="font-size:18px;">You deserve so many beautiful things.</span>
+  </div>
+</section>
+
+
+<section id="final">
+  <div class="divider">✧ · ☾ · ✧</div>
+
+  <h2>One Last Thing...</h2>
+
+  <div class="card letter">
+    Happy birthday again, baby. ♡
+
+    <br><br>
+
+    I hope when you look back on being eighteen,
+    you'll remember this as the beginning of a beautiful chapter.
+
+    I hope you laugh a lot, learn a lot, discover new things,
+    and give yourself credit for how far you've come.
+
+    <br><br>
+
+    This little website isn't much compared to all the things
+    I'd love to give you, but I made it with care,
+    just for your special day.
+
+    <br><br>
+
+    Here's to your eighteenth year and all the wonderful
+    things waiting for you.
+
+    <br><br>
+
+    Happy birthday, Mido. 🌙♡
+
+    <br><br>
+
+    — Your girl
+  </div>
+
+  <div class="moon">☾</div>
+
+  <p style="font-family:'Cormorant Garamond',serif;font-size:24px;">
+    Made with love, just for you.
+  </p>
+</section>
+
+
+<footer>
+  under the same moon, always ♡
+  <br>
+  <span style="font-size:14px;">October 27</span>
+</footer>
+
+
+<script>
+const starBox = document.getElementById("stars");
+
+for (let i = 0; i < 65; i++) {
+  const star = document.createElement("span");
+  star.className = "star";
+  star.textContent = Math.random() > 0.5 ? "✦" : "·";
+  star.style.left = Math.random() * 100 + "%";
+  star.style.top = Math.random() * 100 + "%";
+  star.style.fontSize = (8 + Math.random() * 13) + "px";
+  star.style.animationDelay = Math.random() * 3 + "s";
+  starBox.appendChild(star);
+}
+
+function showSecret() {
+  const message = document.getElementById("secretMessage");
+
+  if (message.style.display === "block") {
+    message.style.display = "none";
+  } else {
+    message.style.display = "block";
+  }
+}
+</script>
+
+</body>
+  </html>
